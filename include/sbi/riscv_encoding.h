@@ -730,6 +730,8 @@
 #define CAUSE_VIRTUAL_INST_FAULT	0x16
 #define CAUSE_STORE_GUEST_PAGE_FAULT	0x17
 
+#define CAUSE_FP_EXCEPTION 0x18
+
 /* Common defines for all smstateen */
 #define SMSTATEEN_MAX_COUNT		4
 #define SMSTATEEN0_CS_SHIFT		0

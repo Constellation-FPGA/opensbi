@@ -203,8 +203,10 @@ static int delegate_traps(struct sbi_scratch *scratch)
 	interrupts = MIP_SSIP | MIP_STIP | MIP_SEIP;
 	interrupts |= sbi_pmu_irq_bit();
 
+	/* Enable Delegation of FP exceptions by default, since firmware should never
+	 * cause an FP exception. */
 	exceptions = (1U << CAUSE_MISALIGNED_FETCH) | (1U << CAUSE_BREAKPOINT) |
-		     (1U << CAUSE_USER_ECALL);
+			   (1U << CAUSE_USER_ECALL) | (1U << CAUSE_FP_EXCEPTION);
 	if (sbi_platform_has_mfaults_delegation(plat))
 		exceptions |= (1U << CAUSE_FETCH_PAGE_FAULT) |
 			      (1U << CAUSE_LOAD_PAGE_FAULT) |
