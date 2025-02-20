@@ -731,6 +731,7 @@
 #define CAUSE_STORE_GUEST_PAGE_FAULT	0x17
 
 #define CAUSE_FP_EXCEPTION 0x18
+#define CAUSE_INST_STEP 0x19 // ESTEP
 
 /* Common defines for all smstateen */
 #define SMSTATEEN_MAX_COUNT		4
